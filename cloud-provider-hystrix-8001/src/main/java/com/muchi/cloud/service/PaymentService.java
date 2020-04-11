@@ -1,6 +1,7 @@
 package com.muchi.cloud.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,12 +17,12 @@ public class PaymentService {
         return "线程池"+Thread.currentThread().getName()+"Payment"+id;
     }
 
-   // @RequestMapping("/paymentTimeout")
-   /* @HystrixCommand(fallbackMethod = "paymentInfo_timeoutFallback"
-    ,@HystrixCommand(commandProperties = ))
+
+    @HystrixCommand(fallbackMethod = "paymentInfo_timeoutFallback"
+    ,commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "3000")})
     public String paymentInfo_timeout(Integer id){
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -29,5 +30,5 @@ public class PaymentService {
     }
     public String paymentInfo_timeoutFallback(Integer id){
         return id+"有误";
-    }*/
+    }
 }
