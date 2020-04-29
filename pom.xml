@@ -25,6 +25,13 @@
       <module>cloud-gateway-9527</module>
     <module>cloud-stream-rbmq-8801</module>
     <module>cloud-rbmq-consumer-8802</module>
+    <module>cloud-alibaba-payment9001</module>
+    <module>cloudalibaba-consumer-80</module>
+    <module>cloud-nacos-config-3377</module>
+      <module>cloud-sentinel-service8401</module>
+      <module>seata-service-2001</module>
+      <module>cloud-seata-storage2002</module>
+      <module>cloud-seata-account</module>
   </modules>
   <packaging>pom</packaging>
 

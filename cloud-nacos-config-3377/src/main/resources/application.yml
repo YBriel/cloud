@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: dev # 表示开发环境
+    #active: test # 表示测试环境
+    #active: info
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    #registerWithEureka: false
+    service-url:
+      defaultZone: http://192.168.0.239:8899/eureka

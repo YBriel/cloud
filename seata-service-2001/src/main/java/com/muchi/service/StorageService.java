@@ -1,0 +1,18 @@
+package com.muchi.service;
+
+import com.muchi.domain.CommonResult;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+/**
+ * @auther zzyy
+ * @create 2020-02-26 15:22
+ */
+@FeignClient(value = "seata-storage-service")
+public interface StorageService
+{
+    @RequestMapping(value = "/storage/decrease")
+    CommonResult decrease(@RequestParam("productId") Long productId, @RequestParam("count") Integer count);
+}
